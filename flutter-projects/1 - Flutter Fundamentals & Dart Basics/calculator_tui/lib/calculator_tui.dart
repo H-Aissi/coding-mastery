@@ -1,18 +1,19 @@
-int calculate(int first,String op,int second) {
-  double result = 0.0;
+String calculate(int first,String op,int second) {
+  int result = 0;
   if(op == "+"){
-    result = (first + second).toDouble();
+    result = first + second;
   }
   else if(op == "-"){
-    result = (first - second).toDouble();
+    result = first - second;
   }
   else if(op == "*"){
-    result = (first * second).toDouble();
+    result = first * second;
   }
   else if(op == "/"){
-    if (second == 0) return 0;
-    result = first / second;
+    if (second == 0) return "can not divide through zero";
+    result = (first / second).toInt();
   }
-  int endresult = result.toInt();
-  return endresult;
+  
+  String endresult = result.toString();
+  return "Result: $endresult";
 }

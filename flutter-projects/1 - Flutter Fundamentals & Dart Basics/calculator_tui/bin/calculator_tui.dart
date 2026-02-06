@@ -8,8 +8,10 @@ void main(List<String> arguments) {
   String? operation = stdin.readLineSync();
   print('Second Number:   ');
   String? secondNumber = stdin.readLineSync();
+  
   int firstNumberInt = int.parse(firstNumber!);
+  print(firstNumberInt);
   String operationString = operation.toString();
   int secondNumberInt = int.parse(secondNumber!);
-  print('Result ===   ${calculator_tui.calculate(firstNumberInt, operationString, secondNumberInt)}');
+  print(calculator_tui.calculate(firstNumberInt, operationString, secondNumberInt));
 }
