@@ -1,17 +1,27 @@
 import 'package:calculator_tui/calculator_tui.dart' as calculator_tui;
 import 'dart:io';
 
+import 'package:calculator_tui/int_validation.dart';
+
 void main(List<String> arguments) {
-  print('First Number:    ');
-  String? firstNumber = stdin.readLineSync();
-  print('choose an operation ( + - * / ):   ');
-  String? operation = stdin.readLineSync();
-  print('Second Number:   ');
-  String? secondNumber = stdin.readLineSync();
-  
-  int firstNumberInt = int.parse(firstNumber!);
-  print(firstNumberInt);
-  String operationString = operation.toString();
-  int secondNumberInt = int.parse(secondNumber!);
-  print(calculator_tui.calculate(firstNumberInt, operationString, secondNumberInt));
+  int? firstNum;
+  String? operator;
+  int? secondNum;
+
+  while(firstNum == null){
+    firstNum = getValidInt();
+  }
+  while(operator == null){
+    print("Enter an operator(+, -, *, /): ");
+    operator = stdin.readLineSync();
+    print(operator);
+    if(operator != "+" && operator != "-" && operator != "*" && operator != "/"){
+      print("Invalid Operator - please try again");
+      operator = null;
+    }
+  }
+  while(secondNum == null){
+    secondNum = getValidInt();
+  }
+  print(calculator_tui.calculate(firstNum, operator, secondNum));
 }
